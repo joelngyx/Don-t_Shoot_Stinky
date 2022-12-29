@@ -37,9 +37,9 @@ const Scoreboard = (props) => {
           body: JSON.stringify(body)
         }
       );
-
+      
+      // eslint-disable-next-line
       const jsonData = await postScore.json();
-      console.log(jsonData);
       setSubmittedScore(true);
     } catch (e) {
       console.log(e.message);
@@ -57,7 +57,6 @@ const Scoreboard = (props) => {
       .then(response => response.json())
       .then(response => {
         let temp = [];
-        console.log(response[0]);
         for (let i = 0; i < response.length; i ++)
           temp[i] = {key: i, playerName: response[i]["player_name"], playerScore: response[i]["score"]}
         setHighScores(temp);

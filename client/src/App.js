@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import Landing from './components/Landing';
 import GameLoop from './components/GameLoop';
@@ -11,10 +11,6 @@ function App() {
   const startGame = () => {
     setGameState(1);
   }
-
-  useEffect(() => {
-    console.log(gameState);
-  }, [gameState]);
 
   switch (gameState) {
     case 0:

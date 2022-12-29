@@ -93,7 +93,6 @@ const GameLoop = (props) => {
       // blinky shoots more than once chance
       for (let count = 0; count < 3; count ++) {
         blinkyChance = Math.floor(Math.random() * 100);
-        console.log(`blinkyChance: ${blinkyChance}`);
         if (blinkyChance > (70 + 10 * count)) {
           handleShoot();
           await timer(150);
