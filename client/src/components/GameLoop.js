@@ -143,6 +143,10 @@ const GameLoop = (props) => {
   if (!dead) {
     return (
       <div className="gameloop">
+        <button onClick={() => {
+          props.setGameState(0);
+          props.setScore(0);
+        }}>Back to start</button>
         <div className="score">Score: {props.score}</div>
         <div><Player turn={turn} dead={dead}/></div>
         <div><Bullet bulletId={0} liveBulletIndex={liveBulletIndex} current={currentBullet} rollState={rollState}/></div>
@@ -154,10 +158,6 @@ const GameLoop = (props) => {
         <button onClick={handleShoot} disabled={!roundStarted || !(rollState === "resting") || turn === "blinky"}>Shoot</button>
         <button onClick={handleRoll} disabled={!(rollState === "resting") || turn === "blinky"}>Roll</button>
         {/* <button onClick={checkState}>Debug</button> */}
-        <button onClick={() => {
-          props.setGameState(0);
-          props.setScore(0);
-        }}>Back to start</button>
         <button onClick={setTurnBlinky} disabled={!ableToPass}>Pass</button>
         <p>{msg}</p>
       </div>

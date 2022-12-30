@@ -9,11 +9,15 @@ const Scoreboard = (props) => {
 
   useEffect(() => {
     getHighScores();
+    console.log(highScores);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getHighScores();
-  }, [submittedScore]);
+    console.log(highScores);
+    // eslint-disable-next-line
+  }, [submittedScore, props.gameState]);
 
   const postScore = async() => {
     if (name.replace(" ", "") === "") {
@@ -76,13 +80,16 @@ const Scoreboard = (props) => {
           })}</div>
       </div>
       <h1>Your score: {props.score}</h1>
-      <input placeholder="Provice your name" value={name} onChange={(e) => {
+      <input placeholder="Provide your name" value={name} onChange={(e) => {
         setName(e.target.value);
         setErrorMsg();
         }}/>
       <div>{errorMsg}</div>
       <div><button onClick={postScore} disabled={submittedScore}>{submittedScore ? "Submitted!" : "Submit"}</button></div>
-      <div><button onClick={() => {props.setGameState(0)}}>Back to start</button></div>
+      <div><button onClick={() => {
+        props.setGameState(0);
+        props.setScore(0);
+        }}>Back to start</button></div>
     </div>
   )
 } 

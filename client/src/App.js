@@ -18,7 +18,7 @@ function App() {
     case 1:
       return (<GameLoop setGameState={setGameState} score={score} setScore={setScore}/>);
     case 2:
-      return (<Scoreboard setGameState={setGameState} score={score}/>);
+      return (<Scoreboard gameState={gameState} setGameState={setGameState} score={score} setScore={setScore}/>);
     default:
       return (<h1>sum tin wong</h1>)
   }
