@@ -33,7 +33,7 @@ app.route("/scoreboard")
       console.log("request received");
 
       const resultEntries = await db.query(
-        "SELECT player_name, score FROM scoreboard ORDER BY score DESC LIMIT 3;"
+        "SELECT player_name, score FROM scoreboard ORDER BY score DESC LIMIT 5;"
       )
 
       res.json(resultEntries);
