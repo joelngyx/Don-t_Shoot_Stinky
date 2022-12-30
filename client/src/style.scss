@@ -31,6 +31,7 @@ h1 {font-weight: 300;}
 .score-tile {font-size: $smallerTextSize; margin: 0 auto; margin-top: 2vh; width: 40vh; color: #F5D547;}
 .header-scores {margin: 0 auto; width: 40vh; background-color: $loudPink; color: $chocolateBlack; padding: 5px; 
   border-radius: 10px; margin-bottom: 2vh;}
+.loading-page {background-color: $chocolateBlack; color: $loudPink; font-size: $regularTextSize; font-weight: 300; margin-top: 30vh;}
 
 #landingDiv {width: fit-content; margin: auto; margin-top: 10vh; vertical-align: middle; border-radius: 20px; padding: 5vw;
   h1 {color: $loudPink;}
