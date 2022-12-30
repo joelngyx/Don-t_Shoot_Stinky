@@ -15,13 +15,13 @@ h1 {font-weight: 300;}
 .bulletImg {width: 10vh;}
 .score {color: $loudPink; font-size: $largeTextSize; margin-bottom: 10px;}
 .playerImg {width: 35vh};
-.gameloop {color: $loudPink; margin-top: 15vh; margin-inline: 5vw;
+.gameloop {color: $loudPink; margin-top: 10vh; margin-inline: 5vw;
   h1 {font-size: $regularTextSize; font-weight: 300;}
   p {font-size: $smallerTextSize;}
   button {background-color: $loudPink; color: $chocolateBlack; border-style: hidden; margin: 10px; font-size: $regularTextSize;
     &:hover {background-color: $cobaltBlue; color: $loudPink;}
     &:focus {outline-style: none;}}}
-.scoreboard {color: $loudPink; margin-top: 10vw; margin-inline: 5vw; text-align: center; justify-content: center; align-items: center;
+.scoreboard {color: $loudPink; margin-top: 10vh; margin-inline: 5vw; text-align: center; justify-content: center; align-items: center;
   div {margin-top: 5px;}
   input {color: $loudPink; height: 5vh; font-size: $smallerTextSize;}
   button {background-color: $loudPink; color: $chocolateBlack; border-style: hidden; font-size: $regularTextSize;
@@ -29,7 +29,8 @@ h1 {font-weight: 300;}
           &:hover {background-color: $cobaltBlue; color: $loudPink;}
           &:focus {outline-style: none;}}}
 .score-tile {font-size: $smallerTextSize; margin: 0 auto; margin-top: 2vh; width: 40vh; color: #F5D547;}
-.header-scores {margin: 0 auto; width: 40vh; background-color: $loudPink; color: $chocolateBlack; padding: 5px; border-radius: 10px;}
+.header-scores {margin: 0 auto; width: 40vh; background-color: $loudPink; color: $chocolateBlack; padding: 5px; 
+  border-radius: 10px; margin-bottom: 2vh;}
 
 #landingDiv {width: fit-content; margin: auto; margin-top: 10vh; vertical-align: middle; border-radius: 20px; padding: 5vw;
   h1 {color: $loudPink;}
