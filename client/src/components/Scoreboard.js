@@ -74,10 +74,12 @@ const Scoreboard = (props) => {
     <div className="scoreboard">
       <div className="scores">
         <div className="header-scores"><h1>High Scores</h1></div>
-        <div>{highScores.map((item) => {
+        <div>
+          {highScores.map((item) => {
             return <div className="score-tile" key={item.key}>
               {item.playerName} score: {item.playerScore}</div>
-          })}</div>
+          })}
+        </div>
       </div>
       <h1>Your score: {props.score}</h1>
       <input placeholder="Provide your name" value={name} onChange={(e) => {

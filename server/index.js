@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -7,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const pgp = require("pg-promise")();
-const db = pgp("postgres://liklfhpf:nryPSAifMSFRzT8IqX7Zwm0B4d6ZmtLs@tiny.db.elephantsql.com/liklfhpf");
+const db = pgp(process.env.POSTGRES_URL);
 
 app.route("/scoreboard")
 	.post(async (req, res) => {
