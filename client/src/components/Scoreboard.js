@@ -7,18 +7,6 @@ const Scoreboard = (props) => {
   const [errorMsg, setErrorMsg] = useState();
   const score = props.score;
 
-  useEffect(() => {
-    getHighScores();
-    console.log(highScores);
-    // eslint-disable-next-line
-  }, []);
-
-  useEffect(() => {
-    getHighScores();
-    console.log(highScores);
-    // eslint-disable-next-line
-  }, [submittedScore, props.gameState]);
-
   const postScore = async() => {
     if (name.replace(" ", "") === "") {
       setErrorMsg("Not a valid name!");
@@ -70,30 +58,57 @@ const Scoreboard = (props) => {
     }
   }
 
-  return (
-    <div className="scoreboard">
-      <div className="scores">
-        <div className="header-scores"><h1>High Scores</h1></div>
-        <div>
-          {highScores.map((item) => {
-            return <div className="score-tile" key={item.key}>
-              {item.playerName} score: {item.playerScore}</div>
-          })}
+  useEffect(() => {
+    getHighScores();
+    console.log(highScores);
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    getHighScores();
+    console.log(highScores);
+    // eslint-disable-next-line
+  }, [submittedScore, props.gameState]);
+
+  if (highScores.length === 0) {
+    return (
+      <div className="scoreboard">
+        <h1>Your score: {props.score}</h1>
+        <div className="scores">
+          <p>Loading Scoreboard...</p>
         </div>
+        <div><button onClick={() => {
+          props.setGameState(0);
+          props.setScore(0);
+          }}>Back to start</button></div>
       </div>
-      <h1>Your score: {props.score}</h1>
-      <input placeholder="Provide your name" value={name} onChange={(e) => {
-        setName(e.target.value);
-        setErrorMsg();
-        }}/>
-      <div>{errorMsg}</div>
-      <div><button onClick={postScore} disabled={submittedScore}>{submittedScore ? "Submitted!" : "Submit"}</button></div>
-      <div><button onClick={() => {
-        props.setGameState(0);
-        props.setScore(0);
-        }}>Back to start</button></div>
-    </div>
-  )
+    );
+  } else {
+    return (
+      <div className="scoreboard">
+        <div className="scores">
+          <div className="header-scores"><h1>High Scores</h1></div>
+          <div>
+            {highScores.map((item) => {
+              return <div className="score-tile" key={item.key}>
+                {item.playerName} score: {item.playerScore}</div>
+            })}
+          </div>
+        </div>
+        <h1>Your score: {props.score}</h1>
+        <input placeholder="Provide your name" value={name} onChange={(e) => {
+          setName(e.target.value);
+          setErrorMsg();
+          }}/>
+        <div>{errorMsg}</div>
+        <div><button onClick={postScore} disabled={submittedScore}>{submittedScore ? "Submitted!" : "Submit"}</button></div>
+        <div><button onClick={() => {
+          props.setGameState(0);
+          props.setScore(0);
+          }}>Back to start</button></div>
+      </div>
+    );
+  }
 } 
 
 export default Scoreboard;
